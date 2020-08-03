@@ -1,0 +1,76 @@
+﻿.header1 {
+    overflow: hidden;
+    background-color: #0047ff;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.header2 {
+    overflow: hidden;
+    background-color: black;
+    width: 100%;
+    color: white;
+    text-align: right;
+}
+
+.wraper {
+    display: flex;
+    position: relative;
+}
+
+    .wraper .sidebar {
+        position: fixed;
+        width: 250px;
+        height: 100%;
+        background-color: #002038;
+    }
+
+.bgcolor {
+    background: #007bff;
+    background: linear-gradient(to right, #005f8f, #005a66);
+}
+
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+    .card-signin .card-title {
+        margin-bottom: 2rem;
+        font-weight: 300;
+        font-size: 1.5rem;
+    }
+
+    .card-signin .card-body {
+        padding: 2rem;
+    }
+
+.form-signin {
+    width: 100%;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+    .form-label-group input {
+        height: auto;
+    }
+
+#btn {
+    float: inline-end;
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    #btn:hover {
+        background-color: yellowgreen;
+    }

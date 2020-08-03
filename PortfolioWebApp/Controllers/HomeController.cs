@@ -26,5 +26,9 @@ namespace PortfolioWebApp.Controllers
 
             return View();
         }
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
     }
 }
