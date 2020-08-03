@@ -1,0 +1,74 @@
+ Database demo
+
+    create table logsdata(id int(6) unsigned auto_increment primary key,uname varchar(100),psw varchar(30))
+
+    inser into logsdata(uname,psw) values('Raju','admin');
+
+
+************
+
+15minlogout.js
+<script type="text/javascript">
+
+        function ResetOnAnyActivity()
+        {
+            window.onmousemove=ResetTimers;
+            window.onmousedown=ResetTimers;
+            window.onclick =ResetTimers;
+            window.onscroll=ResetTimers;
+            window.onkeypress =ResetTimers;
+          
+        }
+
+     
+
+
+
+
+
+        // Set timeout variables.
+        var timoutWarning = 10000; // Display warning in 1Mins.
+        var timoutNow = 7000; // Timeout in 2 mins.
+      //  var logoutUrl = 'http://www.asp.net; // URL to logout page.
+
+        var warningTimer;
+        var timeoutTimer;
+
+        // Start timers.
+        function StartTimers() {
+            warningTimer = setTimeout("IdleWarning()", timoutWarning);
+            timeoutTimer = setTimeout("IdleTimeout()", timoutNow);
+        }
+
+        // Reset timers.
+        function ResetTimers() {
+            clearTimeout(warningTimer);
+            clearTimeout(timeoutTimer);
+            StartTimers();
+            $("#timeout").dialog('close');
+        }
+
+        // Show idle timeout warning dialog.
+        function IdleWarning() {
+            $("#timeout").dialog({
+                modal: true
+            });
+        }
+
+        // Logout the user.
+        function IdleTimeout() {
+            alert("Logout")
+            window.location = logoutUrl;
+        }
+        ResetOnAnyActivity();
+    </script>
+</head>
+<body onload="StartTimers();">
+    <form id="form1" >
+    <div id="timeout">
+        <h1>
+            Session About To Timeout</h1>
+        
+    </div>
+    </form>
+</body>

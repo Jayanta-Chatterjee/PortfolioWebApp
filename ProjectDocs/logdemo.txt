@@ -1,0 +1,353 @@
+Login.php
+
+<html>
+<head>
+<title>Log In</title>
+  <link rel="stylesheet" type="text/css" href="design.css"/>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/javascript" href="bootstrap.bundle.min.js"/>
+  <link rel="stylesheet" type="text/javascript" href="bootstrap.min"/>
+</head>
+<body class="bgcolor">
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Log In</h5>
+            <?php include_once('submit.php')  ?>
+            <form class="form-signin" method="post">
+              <div class="form-label-group">
+                <input type="text" id="username" class="form-control" placeholder="Enter Username" name="username" required autofocus>
+               </div>
+                <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pssw" required>
+               
+              </div>             
+              <button class="btn btn btn-info btn-block text-uppercase" type="submit" name="login">Log In</button>
+              <button class="btn btn btn-info btn-block text-uppercase" type="button" name="cancle">Cancle</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
+
+****************************************
+
+design.css
+.header1 {
+    overflow: hidden;
+    background-color:#0047ff;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+  .header2{
+           overflow: hidden;
+           background-color:black;
+           width: 100%;
+           color: white;
+       text-align: right;
+  }
+  .wraper {
+           display: flex;
+           position: relative;
+  }
+  .wraper .sidebar {
+         position: fixed;
+         width: 250px;
+         height: 100%;
+         background-color: #002038;
+  }
+  .bgcolor {
+       background: #007bff;
+       background: linear-gradient(to right,#005F8F,#005A66);
+     }
+     
+     .card-signin {
+       border: 0;
+       border-radius: 1rem;
+       box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+     }
+     
+     .card-signin .card-title {
+       margin-bottom: 2rem;
+       font-weight: 300;
+       font-size: 1.5rem;
+     }
+     
+     .card-signin .card-body {
+       padding: 2rem;
+     }
+     
+     .form-signin {
+       width: 100%;
+     }
+     
+          
+     .form-label-group {
+       position: relative;
+       margin-bottom: 1rem;
+     }
+     
+     .form-label-group input {
+       height: auto;
+     }
+     #btn {
+             float:inline-end;
+             background-color:black;
+             border:none;
+             color:white;
+             padding:10px 12px;
+             font-size: 18px;
+             cursor: pointer;
+             text-decoration: none;
+
+     }
+     #btn:hover{
+                 background-color: yellowgreen;
+         
+     }
+
+     
+ 
+     
+  sidebar.css
+
+.header1 {
+    overflow: hidden;
+    background-color:#0047ff;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+  .header2{
+           overflow: hidden;
+           background-color:black;
+           width: 100%;
+           color: white;
+       text-align: right;
+       z-index:0;
+  }
+.wrap{
+    display: flex;
+    position: relative;
+}
+.wrap .sidenav {
+    height: 100%;
+    width: 257.4px;
+    position: fixed;
+    background-color:#002038;
+    overflow-x: hidden;
+    padding-top: 20px;
+    
+  }
+  
+ 
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  
+  .sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+  }
+  
+  
+  .main {
+    margin-left: 200px; 
+    font-size: 20px; 
+    padding: 0px 10px;
+  }
+  
+ 
+  .active {
+    background-color: green;
+    color: white;
+  }
+  
+ 
+  .dropdown-container {
+    display: none;
+    background-color:#002038;
+    padding-left: 8px;
+  }
+  
+
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  #btn {
+    float:inline-end;
+    background-color:#002038;
+    border:none;
+    color:white;
+    padding:10px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+#btn:hover{
+        background-color: yellowgreen;
+
+}
+***********************
+
+Dashboard.php
+
+<html>
+<head>
+  <title>MemuPanel</title>
+  <link rel="stylesheet" type="text/css" href="sidebar.css"/>
+  <link rel="stylesheet" type="text/css" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div>
+       <div class="header1">
+        <h3>User Panel </h3>
+       </div>
+       <div class="header2">
+             <button type="button" id="btn" name="logout" method="post" action="logout.php"><i class="fa fa-sign-out">Log Out</i></button>
+       </div>
+          
+
+       <div class="wrap">
+           <div class="sidenav">
+            <center><h2 style="color:white;">Dashboard</h2>
+          <button class="dropdown-btn">File 
+              <i class="fa fa-caret-down"></i>
+                </button>
+              <div class="dropdown-container">
+                  <a href="#">Microsoft Word</a>
+                   <a href="#">Microsoft Excel</a>
+                    <a href="#">Corel Draw</a>
+              </div>
+              <a href="#contact">About</a>
+</div>
+            </center>   
+           </div>
+        </div> 
+        <div>
+             <button type="button" id="btn" name="logout" method="post" action="logout.php"><i class="fa fa-sign-out">Log Out</i></button>
+       </div>    
+   </div>
+   <script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+</body>
+</html>
+******************************
+
+connection.php
+
+<?php
+     define('DB_SERVER','localhost');
+     define('DB_USERNAME','root');
+     define('DB_PASSWORD','');
+     define('DB_DATABASE','demo');
+      class connect {
+        public function connect(){
+            $mysqli=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE) or die($mysqli -> connect_error);
+          
+           }
+         public function check_log($username,$pass)
+         {
+           //connect();
+           // $password=md5($pass);
+            $conn=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE) or die($mysqli -> connect_error);
+            $res=$conn-> query("select uname,psw from logstbl where uname='$username' and psw='$pass'");
+            $udata= mysqli_fetch_array($res);
+            $count=$res->num_rows;
+             if($count>0){
+                if($username==$udata['uname'] && $pass==$udata['psw'])
+                 $_SESSION['login']=true;
+                 $_SESSION['username']=$udata['uname'];
+                 $_SESSION['pssw']=$udata['psw'];
+                 return true;
+             }
+             else{
+                  return false;
+             }
+
+         }
+         public function logininsert()
+         {
+          $mysqli=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE) or die($mysqli -> connect_error);
+         }
+         public function logout(){
+          $mysqli=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE) or die($mysqli -> connect_error);
+          
+         }
+    }
+
+?>
+
+submit.php
+***********************
+<?php
+     include_once 'connection.php';
+     $connection= new connect();
+     //$user=$_POST['username'];
+     //$pass=$_POST['pssw'];
+     try{
+     if (isset($_POST['login'])){  
+       // session_start();
+         $login = $connection->check_log($_POST['username'],$_POST['pssw']);  
+      if($login){  
+            header('Location:Dashboard.php');
+      }
+      else
+      {  
+         echo '<script type="text/javascript">';
+         echo 'alert ("Login Failed!")' ;
+         echo '</script>' ;
+      }  
+   }
+   }  catch(Exception $e){
+        echo 'caugth exception :',$e->getMessage(),'\n';
+   }
+             
+   
+  ?>
+*******************************
+
+logout.php
+<?php 
+      if(isset($_POST['logout'])){
+            session_destroy();
+      header('Location:Dashboard.php');  
+      }
+
+?>
