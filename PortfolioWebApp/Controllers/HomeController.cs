@@ -30,5 +30,9 @@ namespace PortfolioWebApp.Controllers
         {
             return View();
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }

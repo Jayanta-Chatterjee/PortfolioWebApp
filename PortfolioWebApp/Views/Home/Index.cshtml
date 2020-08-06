@@ -1,13 +1,4 @@
 ﻿
-<html>
-<head>
-    <title>Log In</title>
-    <link rel="stylesheet" type="text/css" href="~/Content/design.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
-    <link rel="stylesheet" type="text/javascript" href="~/Scripts/bootstrap.bundle.js">
-    <link rel="stylesheet" type="text/javascript" href="~/Scripts/bootstrap.min.js" />
-</head>
-<body class="bgcolor">
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -16,7 +7,7 @@
                         <h5 class="card-title text-center">Log In</h5>
                         <form class="form-signin" method="post">
                             <div class="form-label-group">
-                                <input type="text" id="username" class="form-control" placeholder="Enter Username" name="username" required autofocus>
+                                <input type="email" id="username" class="form-control" placeholder="Enter Email" name="username" required autofocus>
                             </div>
                             <div class="form-label-group">
                                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pssw" required>
@@ -24,11 +15,12 @@
                             </div>
                             <button class="btn btn btn-info btn-block text-uppercase" type="submit" name="login">Log In</button>
                             <button class="btn btn btn-info btn-block text-uppercase" type="button" name="cancle">Cancle</button>
+                            <a class="btn btn btn-success btn-block text-uppercase" 
+                               href="@Url.Action("Register", "Home")">Register</a>
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
