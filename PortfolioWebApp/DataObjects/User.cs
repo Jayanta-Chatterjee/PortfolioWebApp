@@ -7,6 +7,9 @@ namespace PortfolioWebApp.DataObjects
 {
     public class User
     {
-
+        public bool AddNew(Models.User user)
+        {
+            return new DataAccess.User().AddNew(user);
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace PortfolioWebApp.DataAccess
         public bool AddNew(Models.User user)
         {
             bool result = false;
+            //System.Net.ServicePointManager.Expect100Continue = false;
+
             using (var conn = new MySqlConnection(Settings.MySQLConnectionString))
             {
                 conn.Open();

@@ -34,5 +34,11 @@ namespace PortfolioWebApp.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Register(Models.User user)
+        {
+            var response = new DataObjects.User().AddNew(user);
+            return View();
+        }
     }
 }
