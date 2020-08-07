@@ -164,7 +164,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Settings.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataAccess\Auth.cs" />
     <Compile Include="DataAccess\User.cs" />
+    <Compile Include="DataObjects\Auth.cs" />
     <Compile Include="DataObjects\User.cs" />
     <Compile Include="DBScripts\AuthScripts.cs" />
     <Compile Include="DBScripts\UserScripts.cs" />

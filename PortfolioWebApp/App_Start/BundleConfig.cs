@@ -25,7 +25,7 @@ namespace PortfolioWebApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/design.css",
-                      "~/Content/bootstrap.min.css"));
+                      "~/Content/bootstrap.min.css", "~/Content/sidebar.css"));
         }
     }
 }
