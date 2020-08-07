@@ -12,7 +12,12 @@ namespace PortfolioWebApp.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(Models.User user)
+        {
 
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -37,7 +42,14 @@ namespace PortfolioWebApp.Controllers
         [HttpPost]
         public ActionResult Register(Models.User user)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.StatusMsg = "Invalid Data";
+                return View();
+            }
             var response = new DataObjects.User().AddNew(user);
+            ViewBag.StatusMsg = "Register successfully";
+
             return View();
         }
     }
