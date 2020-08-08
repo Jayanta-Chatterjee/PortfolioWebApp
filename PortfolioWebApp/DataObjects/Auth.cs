@@ -20,6 +20,20 @@ namespace PortfolioWebApp.DataObjects
                     user.UserName = reader["UserName"].ToString();
                 }
             }
+          
+            if (user!=null )
+            {
+                var workDetails = new DataAccess.User().IsWorkDetailsAdded(user.Id, DateTime.Now.Date);
+
+                if (workDetails==null || !workDetails.HasRows)
+                {
+                    var work = new Models.Work();
+                    work.UserId = user.Id;
+                    work.Date = DateTime.Now.Date;
+                    work.Login = DateTime.Now;
+                    new DataAccess.User().AddLoginDate(work); 
+                }
+            }
             return user;
         }
     }

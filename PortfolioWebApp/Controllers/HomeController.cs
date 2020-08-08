@@ -17,21 +17,22 @@ namespace PortfolioWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(Models.User user)
         {
-            if (user.UserName=="Admin@mail.com" && user.Password=="admin")
-            {
-                Session["userId"] = 1;
-                Session["userName"] = user.UserName;
-                FormsAuthentication.SetAuthCookie(user.FullName, false);
-                return RedirectToAction(nameof(Dashboard));
-            }
-            
-            //var authUser = new DataObjects.Auth().Login(user.UserName, user.Password);
-            //if (authUser != null)
+            //if (user.UserName=="Admin@mail.com" && user.Password=="admin")
             //{
-            //    Session["userId"] = authUser.Id.ToString();
-            //    FormsAuthentication.SetAuthCookie(user.FullName, false);
+            //    Session["userId"] = 1;
+            //    Session["userName"] = user.UserName;
+            //    FormsAuthentication.SetAuthCookie(user.UserName, false);
             //    return RedirectToAction(nameof(Dashboard));
             //}
+
+            var authUser = new DataObjects.Auth().Login(user.UserName, user.Password);
+            if (authUser != null)
+            {
+                Session["userId"] = authUser.Id.ToString();
+                Session["userName"] = user.UserName;
+                FormsAuthentication.SetAuthCookie(user.UserName, false);
+                return RedirectToAction(nameof(Dashboard));
+            }
 
             ModelState.AddModelError("", "Invalid credential");
             return View();
@@ -54,13 +55,15 @@ namespace PortfolioWebApp.Controllers
         public ActionResult Dashboard()
         {
             var userId=Convert.ToInt32( Session["userId"].ToString());
-            //var work = new DataObjects.User().GetWorkDetailsAdded(userId, DateTime.Now);
-            var work = new Models.Work()
-            {
-                UserId = userId,
-                Id = 1,
-                Details = string.Empty
-            };
+
+            var work = new DataObjects.User().GetWorkDetailsAdded(userId, DateTime.Now);
+            work.UserId = userId;
+            //var work = new Models.Work()
+            //{
+            //    UserId = userId,
+            //    Id = 1,
+            //    Details = string.Empty
+            //};
 
             return View(work);
         }
@@ -68,6 +71,7 @@ namespace PortfolioWebApp.Controllers
         [HttpPost]
         public ActionResult Dashboard(Models.Work work)
         {
+            work.Date = DateTime.Now.Date;
             var result = new DataObjects.User().AddWorkDetails(work);
             if (result)
             {
