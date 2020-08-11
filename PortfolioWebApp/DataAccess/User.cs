@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MySql.Data.MySqlClient;
-using PortfolioWebApp.App_Start;
+﻿using PortfolioWebApp.App_Start;
+using System;
 using System.Data;
-using System.Text;
 using System.Data.SqlClient;
+using System.Text;
 
 
 namespace PortfolioWebApp.DataAccess

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PortfolioWebApp.DBScripts
+﻿namespace PortfolioWebApp.DBScripts
 {
     public class UserScripts
     {
@@ -18,8 +13,8 @@ namespace PortfolioWebApp.DBScripts
         public static string IsUserNameAvailable = "select id from users where UserName=@UserName";
         public static string GetHistory = "select users.userName,CONVERT(VARCHAR(10), works.date, 111) as Date,"
             +" works.LoginDate,works.logoutDate,works.details,"
-            + " CAST( DATEDIFF(hh, LoginDate, LogoutDate) as nvarchar(100)) +':'+ CAST(DATEDIFF(mi, DATEADD(hh, DATEDIFF(hh, LoginDate, LogoutDate), LoginDate),LogoutDate) as nvarchar(100)) as WorkingHours"
-            +" from users inner join works on works.UserId=users.Id where users.username=@username";
+            + " CAST( FORMAT( DATEDIFF(hh, LoginDate, LogoutDate),'00') as nvarchar(100)) +':'+ CAST(FORMAT( DATEDIFF(MI, LoginDate, LogoutDate),'00') as nvarchar(100)) as WorkingHours"
+            + " from users inner join works on works.UserId=users.Id where users.username=@username";
 
     }
 }

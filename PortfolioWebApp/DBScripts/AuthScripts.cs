@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PortfolioWebApp.DBScripts
+﻿namespace PortfolioWebApp.DBScripts
 {
     public class AuthScripts
     {
